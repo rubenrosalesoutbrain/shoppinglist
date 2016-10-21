@@ -1,40 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Shopping List</title>
-<link rel="stylesheet" type="text/css" href="main.css" />
-</head>
-<script src="http://code.jquery.com/jquery.min.js"></script>
-<script>
-$(function() {
-      $("#itemButton").click( function(){
-   		
-//$("#itemInput").val()
-       $(".allItems ul").append("<li>" + $("#itemInput").val() + "</li>");
+  <meta charset="UTF-8">
+  <title>Shopping List</title>
+  <link href="main.css" rel="stylesheet" type="text/css">
+  <script src="http://code.jquery.com/jquery.min.js">
+  </script>
+  <style>
+.striketext {
+    text-decoration: line-through;
+    
+}
+  </style>
+  <script>
+
+
+  $(function() {
+
+
+
+
+
+
+$("#itemButton").click( function(){
+  //$("#itemInput").val()
+       $(".allItems ul").append('<li><button id="check">Check</button> '+
+       	$("#itemInput").val() + " <button id='trash'>Trash</button></li>");
+
+
+
        $('#itemInput').val('');
-       
-       });
-});
 
-</script>
+   });
+
+      
+
+      $('.allItems ul').on('click', '#trash', function(event){
+        
+        $(this).closest('li').remove();
+    }); 
+
+    $('.allItems ul').on('click', '#check', function(event){
+        
+        $(this).closest('li').toggleClass('striketext');
+    }); 
+   
+   
+  });
+
+
+  </script>
+</head>
 <body>
-	<!-- textbox for inputting shopping items -->
-	<div class="container">
-		<h1>Shopping List</h1>
-
-			<input type="text" id="itemInput" value="" placeholder="Item" size="30">
-			<button type="submit" id="itemButton">Add Item</button>
-		
-		<!-- shopping list -->
-		<h2> Items </h2>
-<div class = "test" id = "test" > </div>
-		<div class="allItems">
-			<ul>
-			</ul>
-		</div>
-	</div>
-	
-
+  <!-- textbox for inputting shopping items -->
+  <div class="container">
+    <h1>Shopping List</h1><input id="itemInput" placeholder="Item" size="30" type="text" value=""> <button id="itemButton">Add Item</button> <!-- shopping list -->
+    <h2>Items</h2>
+    <div class="test" id="test"></div>
+    <div class="allItems">
+      <ul></ul>
+    </div>
+  </div>
 </body>
 </html>
