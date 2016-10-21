@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Shopping List</title>
+<link rel="stylesheet" type="text/css" href="main.css" />
+</head>
+<script src="http://code.jquery.com/jquery.min.js"></script>
+<script>
+$(function() {
+      $("#itemButton").click( function(){
+   		
+//$("#itemInput").val()
+       $(".allItems ul").append("<li>" + $("#itemInput").val() + "</li>");
+       $('#itemInput').val('');
+       
+       });
+});
+
+</script>
+<body>
+	<!-- textbox for inputting shopping items -->
+	<div class="container">
+		<h1>Shopping List</h1>
+
+			<input type="text" id="itemInput" value="" placeholder="Item" size="30">
+			<button type="submit" id="itemButton">Add Item</button>
+		
+		<!-- shopping list -->
+		<h2> Items </h2>
+<div class = "test" id = "test" > </div>
+		<div class="allItems">
+			<ul>
+			</ul>
+		</div>
+	</div>
+	
+
+</body>
+</html>

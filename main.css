@@ -1,0 +1,10 @@
+
+.container {
+
+    text-align: center;
+}
+.allItems {
+    margin: 0 auto;
+    width: 200px;
+}
+li {list-style-type: none;}
